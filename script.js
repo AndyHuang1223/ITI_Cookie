@@ -45,7 +45,9 @@ function covertStringToObject () {
 handJsObjectInput.addEventListener('input', () => {
   handJsJsonInput.value = JSON.stringify(covertStringToObject(), null, 4)
 
-  cardRenderScope.innerHTML = ''
+  Cookies.set('cardList', JSON.stringify(JSON.stringify(covertStringToObject())))
+  
+  cardRenderScope.innerHTML = JSON.stringify(covertStringToObject())
   
   covertStringToObject().forEach(el => {
     cardRenderScope.innerHTML +=
