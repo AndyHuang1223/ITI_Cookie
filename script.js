@@ -38,6 +38,31 @@ handonModelInput.value =
   content: '商品內文'
 }]`
 
+// 請複製以下片段
+/*
+[{
+  name: '商品名稱',
+  imgUrl: 'https://picsum.photos/300/200/?random=10',
+  content: '商品內文'
+},{
+  name: '商品名稱',
+  imgUrl: 'https://picsum.photos/300/200/?random=10',
+  content: '商品內文'
+},{
+  name: '商品名稱',
+  imgUrl: 'https://picsum.photos/300/200/?random=10',
+  content: '商品內文'
+},{
+  name: '商品名稱',
+  imgUrl: 'https://picsum.photos/300/200/?random=10',
+  content: '商品內文'
+},{
+  name: '商品名稱',
+  imgUrl: 'https://picsum.photos/300/200/?random=10',
+  content: '商品內文'
+}]
+*/
+
 function covertStringToObject () {
   return eval(handJsObjectInput.value)
 }
@@ -47,13 +72,13 @@ handJsObjectInput.addEventListener('input', () => {
 
   Cookies.set('cardList', JSON.stringify(JSON.stringify(covertStringToObject())))
   
-  cardRenderScope.innerHTML = JSON.stringify(covertStringToObject())
+  cardRenderScope.innerHTML = ''
   
   covertStringToObject().forEach(el => {
     cardRenderScope.innerHTML +=
     `
-    <div class="col-3">
-      <div class="card" style="width: 18rem;">
+    <div class="col-12 col-md-3">
+      <div class="card">
         <img alt="" src="${el.imgUrl}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">${el.name}</h5>
